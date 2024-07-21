@@ -1,10 +1,10 @@
 #!/usr/bin/env python
+
 import rospy
 from open_manipulator_msgs.srv import SetKinematicsPose, SetKinematicsPoseRequest, SetJointPosition, SetJointPositionRequest
 from geometry_msgs.msg import Pose, Point, Quaternion
 import tf.transformations as tf_tr
-
-
+from coordinates import xy
 
 def euler_to_quaternion(roll, pitch, yaw):
     # Convert Euler angles (roll, pitch, yaw) into quaternion
@@ -62,14 +62,22 @@ def send_pose(poses_with_orientations):
         
         rospy.sleep(2)  # Sleep to maintain loop rate
 
-if __name__ == "__main__":
-    rospy.sleep(5)
-    poses_with_orientations = [
-        ((0.19, 0.07, 0.0701), (0.0, 1.3169, 1.3155), "unchanged", 0.2),
-        ((0.19, 0.07, 0.0401), (0.0, 1.3169, 1.3155), "close", 1.5),
-        ((0.19, 0.07, 0.15), (0.0, 1.3169, 1.3155), "unchanged", 0.1),
-        ((0, -0.092, 0.075), (0.0, 1.40, -0.541), "open", 3),
-        ((0., -0.092, 0.10), (0.0, 1.40, -0.541), "open", 0.1),
-        ((0.14, -0.01, 0.10), (0.0, 1.40, -0.541), "unchanged", 0.1),
-    ]
+def main():
+    
+    
+    rospy.sleep(5)  # Wait for 5 seconds before starting
+    
+    for i in range(len(xy)):
+        poses_with_orientations = [
+            ((xy[i][0], xy[i][1], 0.0701), (0.0, 1.3169, 1.3155), "open", 0.2),
+            ((xy[i][0], xy[i][1], 0.0401), (0.0, 1.3169, 1.3155), "close", 1.5),
+            ((xy[i][0], xy[i][1], 0.15), (0.0, 1.3169, 1.3155), "unchanged", 0.1),
+            ((0, -0.092, 0.075), (0.0, 1.40, -0.541), "open", 3),
+            ((0, -0.092, 0.10), (0.0, 1.40, -0.541), "open", 0.1),
+            ((0.14, -0.01, 0.10), (0.0, 1.40, -0.541), "unchanged", 0.1),
+        ]
+    
     send_pose(poses_with_orientations)
+
+if __name__ == "__main__":
+    main()
