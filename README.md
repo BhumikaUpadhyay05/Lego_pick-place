@@ -32,7 +32,7 @@ To run this project, ensure you have the following dependencies and hardware set
 - **Webcam:** Ensure you have a webcam connected to provide the live video feed necessary for the OpenCV library to detect Lego pieces.
 - **Mount:** Use a mount to position the webcam for optimal viewing.
 
-  ## Project Setup
+## Project Setup
 
 This project setup was done using a mount of approximately 36cm height, using hp 720p 200w webcam
 and the visible platform in the webcam feed has dimensions of 18 cm x 25.3 cm. Adjustments and transformations are applied accordingly in the project setup.
