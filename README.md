@@ -27,10 +27,12 @@ The Random Piece file is for picking and placing one Lego piece randomly from al
 
 To run this project, ensure you have the following dependencies and hardware set up:
 
-- **Open Manipulator-X Robot** 
+- **Open Manipulator-X Robot**
+- **Language**-Python programming language.
 - **OpenCV Library:** Install OpenCV, which is used for computer vision tasks such as detecting Lego pieces from a webcam feed.
 - **Webcam:** Ensure you have a webcam connected to provide the live video feed necessary for the OpenCV library to detect Lego pieces.
 - **Mount:** Use a mount to position the webcam for optimal viewing.
+  
 
 ## Project Setup
 
