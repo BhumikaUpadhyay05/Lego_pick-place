@@ -5,7 +5,7 @@ import time  # Import time module for timestamp
 xy = []
 
 def calculate_pixel_to_cm_ratio(height):
-    ratio = (height * 0.00085)  # Example ratio
+    ratio = (height * 0.00085)  # Example ratio 
     return ratio
 
 def preprocess_image(image):
